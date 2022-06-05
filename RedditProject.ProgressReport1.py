@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 #install BeautifulSoup
 pip install beautifulsoup4
 
 
-# In[3]:
+# In[2]:
 
 
 #install requests
 pip install requests
 
 
-# In[4]:
+# In[3]:
 
 
 #install lxml
 pip install lxml
 
 
-# In[11]:
+# In[4]:
 
 
 #Import BeautifulSoup and requests
@@ -34,12 +34,12 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 url='https://www.reddit.com/r/nature'
 response=requests.get(url, {'headers':headers})
 
+#parse the html and prettify
 soup=BeautifulSoup(response.text,'html.parser')
-#print(soup.prettify)
-#utilized the prettify function to view page, but commented it out for space purposes. Too long.
+print(soup.prettify)
 
 
-# In[12]:
+# In[5]:
 
 
 #select and print the first 7 posts on the web page
@@ -53,8 +53,6 @@ for item in soup.select('.Post')[:7]:
     except Exception as e:
         print('')
 
-
-# In[ ]:
 
 
 
