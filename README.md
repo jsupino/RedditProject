@@ -1,6 +1,6 @@
 # RedditProject
 This is my project for CSIT505. I am scraping a nature web page on Reddit using Python.
-I will be utilizing the BeautifulSoup, Requests, and lmxl Python libraries to retrieve 7 of the most recent nature posts on Reddit.
+I will be utilizing the BeautifulSoup, Requests, and lmxl Python libraries to retrieve the most recent nature posts on Reddit.
 
 Beautiful Soup is a Python library that is used to parse HTML files. It is very useful in web scraping to extract data.
 
@@ -28,9 +28,9 @@ On the web page developer tools, access the UserAgent. To do so, type in navigat
     soup=BeautifulSoup(response.text,'html.parser')
     print(soup.prettify)
     
-After parsing the html file, access the first 7 posts on the web page. The first print stateement will return the title, the second will return the likes on that post, the third will print the number of comments on that post, and the fourth will return the rest of the url to access that specific post. The last print statement is used as a separator in between each post returned.
+After parsing the html file, access the posts on the web page. The first print statement will return the title, the second will return the likes on that post, the third will print the number of comments on that post, and the fourth will return the rest of the url to access that specific post. The last print statement is used as a separator in between each post returned.
 
-    for item in soup.select('.Post')[:7]:
+    for item in soup.select('.Post'):
         try:
             print(item.select('._eYtD2XCVieq6emjKBH3m')[0].get_text())
             print(item.select('._1rZYMD_4xY3gRcSS3p8ODO')[0].get_text())
